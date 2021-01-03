@@ -26,7 +26,7 @@ func process(task interface{}) {
 	// do something
 }
 ```
-以上代码即实现线程安全的生产与消费，
+以上代码即实现线程安全的生产与消费:
 1. `main()` 函数中 `taskQueue := make(chan interface{}, 5)` 代码行，初始化长度为 5 的工作队列;
 2. `go worker(taskQueue)` 表示启动工作协程(非操作系统线程)，4~6 行初始化完成五个消费者协程;
 3. `taskQueue <- i` 表示生产一个任务，8~10 行完成 100 个任务的生产工作；
